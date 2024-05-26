@@ -1,0 +1,94 @@
+<nav class="navbar navbar-expand-lg navBg" data-bs-theme="dark">
+  <div class="container">
+    <a class="navbar-brand">
+      <img
+        width="50px"
+        src="../../../assets/imgs/326413734_893623088507764_879122568292083371_n.png"
+        alt=""
+      />
+    </a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <!-- Display Dashboard link only if logged in and user role is admin -->
+        <li class="nav-item" *ngIf="isLoggedIn && userRole === 'admin'">
+          <a
+            class="nav-link"
+            aria-current="page"
+            routerLinkActive="navActive"
+            routerLink="admin"
+            >Dashboard</a
+          >
+        </li>
+        <!-- Display Profile link only if logged in -->
+        <li class="nav-item" *ngIf="isLoggedIn">
+          <a
+            class="nav-link"
+            aria-current="page"
+            routerLink="user"
+            routerLinkActive="navActive"
+            >Profile</a
+          >
+        </li>
+      </ul>
+      <!-- Dropdown menu for login/register or logout -->
+      <div class="nav-item dropdown text-white ms-auto" *ngIf="!isLoggedIn">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" routerLink="login" routerLinkActive="navActive"
+              >Login</a
+            >
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              routerLink="register"
+              routerLinkActive="navActive"
+              >Register</a
+            >
+          </li>
+          <button
+            class="nav-link ms-3"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+            mat-mini-fab
+            color="accent"
+            aria-label="Example icon button with a menu icon"
+          >
+            <mat-icon>menu</mat-icon>
+          </button>
+          <ul class="dropdown-menu">
+            <li>
+              <a class="dropdown-item">English</a>
+            </li>
+            <li>
+              <a class="dropdown-item">Arabic</a>
+            </li>
+          </ul>
+        </ul>
+      </div>
+      <!-- Logout button if logged in -->
+      <div *ngIf="isLoggedIn">
+        <button
+          mat-raised-button
+          color="accent"
+          class="dropdown-item"
+          (click)="logout()"
+        >
+          LogOut
+        </button>
+      </div>
+    </div>
+  </div>
+</nav>

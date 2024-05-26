@@ -1,0 +1,8 @@
+.navBg {
+  background-color: #4758b8;
+}
+.navActive {
+  color: #fff;
+  border-bottom: solid 2px #fff;
+  width: 70%;
+}

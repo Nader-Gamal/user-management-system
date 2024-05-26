@@ -1,0 +1,39 @@
+<mat-card class="my-5 w-75 m-auto">
+  <mat-card-header>
+    <h2>User Login</h2>
+  </mat-card-header>
+  <mat-card-content>
+    <form
+      class="example-form d-flex flex-column"
+      [formGroup]="logInForm"
+      (ngSubmit)="proceedlogin()"
+    >
+      <mat-form-field class="example-full-width">
+        <mat-label>Username</mat-label>
+        <input matInput formControlName="id" />
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Enter your password</mat-label>
+        <input
+          matInput
+          formControlName="password"
+          [type]="hide ? 'password' : 'text'"
+        />
+        <a
+          mat-icon-button
+          matSuffix
+          (click)="hide = !hide"
+          [attr.aria-label]="'Hide password'"
+          [attr.aria-pressed]="hide"
+        >
+          <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
+        </a>
+      </mat-form-field>
+
+      <div>
+        <button mat-raised-button color="primary" class="mx-2">Login</button>
+        <a routerLink="/register" mat-raised-button color="accent">New User?</a>
+      </div>
+    </form>
+  </mat-card-content>
+</mat-card>

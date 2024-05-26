@@ -1,0 +1,49 @@
+{
+  "users": [
+    {
+      "id": "admin",
+      "name": "Admin",
+      "password": "Admin@123",
+      "email": "nadergamal3100@gmail.com",
+      "gender": "male",
+      "role": "admin",
+      "isactive": true
+    },
+    {
+      "id": "Nader",
+      "name": "Nader Gamal",
+      "password": "Nader310$",
+      "email": "nadergamal310@gmail.com",
+      "gender": "male",
+      "role": "user",
+      "isactive": true
+    },
+    {
+      "id": "Hatem",
+      "name": "hatem gamal",
+      "password": "Hatem@123",
+      "email": "hatemgamal@gmail.com",
+      "gender": "male",
+      "role": "user",
+      "isactive": true
+    },
+    {
+      "id": "mohra",
+      "name": "mohra tharwat",
+      "password": "MOhra@123",
+      "email": "mohra@gmail.com",
+      "gender": "female",
+      "role": "admin",
+      "isactive": true
+    },
+    {
+      "id": "nader",
+      "name": "user 1",
+      "password": "Nader@123",
+      "email": "nadergamal_@outlook.com",
+      "gender": "male",
+      "role": "user",
+      "isactive": false
+    }
+  ]
+}

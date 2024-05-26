@@ -1,0 +1,72 @@
+<div class="mat-elevation-z8 my-5">
+  <mat-card-header>
+    <div class="p-3 d-flex justify-content-between">
+      <h2>List of Users</h2>
+      <button mat-raised-button color="accent" (click)="addUser()">
+        Add User
+      </button>
+    </div>
+    <hr />
+  </mat-card-header>
+  <table mat-table [dataSource]="dataSource">
+    <!-- Position Column -->
+    <ng-container matColumnDef="userName">
+      <th mat-header-cell *matHeaderCellDef>User Name</th>
+      <td mat-cell *matCellDef="let element">{{ element.id }}</td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="Name">
+      <th mat-header-cell *matHeaderCellDef>Name</th>
+      <td mat-cell *matCellDef="let element">{{ element.name }}</td>
+    </ng-container>
+
+    <!-- Weight Column -->
+    <ng-container matColumnDef="Email">
+      <th mat-header-cell *matHeaderCellDef>Email</th>
+      <td mat-cell *matCellDef="let element">{{ element.email }}</td>
+    </ng-container>
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="Role">
+      <th mat-header-cell *matHeaderCellDef>Role</th>
+      <td mat-cell *matCellDef="let element">
+        {{ element.role === "" ? "user" : element.role }}
+      </td>
+    </ng-container>
+
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="Statues">
+      <th mat-header-cell *matHeaderCellDef>Statues</th>
+      <td mat-cell *matCellDef="let element">
+        {{ element.isactive ? "Active" : "In Active" }}
+      </td>
+    </ng-container>
+
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="Action">
+      <th mat-header-cell *matHeaderCellDef>Action</th>
+      <td mat-cell *matCellDef="let element">
+        <a
+          (click)="updateUser(element.id)"
+          mat-raised-button
+          color="primary"
+          class="mx-2"
+          >Update</a
+        >
+        <a (click)="deleteUser(element.id)" mat-raised-button color="warn"
+          >Delete</a
+        >
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>
+
+  <mat-paginator
+    [pageSizeOptions]="[5, 10, 20]"
+    showFirstLastButtons
+    aria-label="Select page of periodic elements"
+  >
+  </mat-paginator>
+</div>
